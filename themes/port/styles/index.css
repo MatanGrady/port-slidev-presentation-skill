@@ -1,0 +1,21 @@
+:root {
+  --port-bg: #f8f9fa;
+  --port-card: #ffffff;
+  --port-black: #000000;
+  --port-muted: #6b7c93;
+  --port-border: #e5e7eb;
+}
+
+.slidev-layout {
+  background: var(--port-bg);
+}
+
+h1 {
+  font-weight: 700;
+  color: var(--port-black);
+}
+
+h2, h3 {
+  font-weight: 600;
+  color: var(--port-black);
+}
