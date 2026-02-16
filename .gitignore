@@ -4,8 +4,10 @@ node_modules/
 
 # Build outputs
 dist/
-*.pdf
-*.png
+
+# Keep template images but ignore exported slides
+!templates/images/*.png
+!templates/images/*.svg
 
 # Slidev cache
 .slidev/
