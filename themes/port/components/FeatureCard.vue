@@ -3,12 +3,13 @@ defineProps({
   icon: { type: String, default: '✨' },
   title: { type: String, required: true },
   color: { type: String, default: 'blue' },
-  variant: { type: String, default: 'default' } // 'default' or 'pillar'
+  variant: { type: String, default: 'default' }, // 'default' or 'pillar'
+  size: { type: String, default: 'default' } // 'default' or 'compact'
 })
 </script>
 
 <template>
-  <div class="feature-card" :class="[`feature-${color}`, variant === 'pillar' && 'pillar']">
+  <div class="feature-card" :class="[`feature-${color}`, variant === 'pillar' && 'pillar', size === 'compact' && 'compact']">
     <div class="feature-content" :class="variant === 'pillar' && 'pillar-content'">
       <div class="feature-icon" :class="variant === 'pillar' && `icon-${color}`">{{ icon }}</div>
       <h3 class="feature-title">{{ title }}</h3>
@@ -27,6 +28,28 @@ defineProps({
   display: flex;
   flex-direction: column;
   min-height: 160px;
+}
+
+.feature-card.compact {
+  padding: 0.75rem 1rem;
+  min-height: auto;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.compact .feature-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.compact .feature-title {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.compact .feature-desc {
+  font-size: 0.8rem;
 }
 
 .feature-card.pillar {

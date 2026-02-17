@@ -44,25 +44,76 @@ The Port theme provides:
 
 ### 2. Use template components (not custom CSS)
 
-**Always prefer theme components over inline Tailwind classes.** The theme components handle spacing, colors, and responsive behavior consistently.
+**CRITICAL: Never use inline Tailwind classes in slides.md.** All styling must go through theme components. This ensures consistency and makes slides easy to maintain.
 
 | Instead of... | Use... |
 |---------------|--------|
 | `<div class="grid grid-cols-3 gap-4">` | `<Grid cols="3" gap="4">` |
+| `<p class="text-lg text-gray-600">` | `<Paragraph>` |
+| `<div class="mt-8">` | `<Space size="large" />` |
+| `<p class="text-xl font-bold text-center">` | `<Highlight>` |
+| `<img class="max-h-96 rounded-lg">` | `<Image size="large" />` |
 | `<div class="bg-blue-100 rounded-xl p-5">` | `<FeatureCard color="blue">` |
 | `<div class="bg-black text-white p-6">` | `<ImpactBox>` |
 | `<span class="bg-blue-100 px-3 py-1 rounded-full">` | `<Tag color="blue">` |
+| Video/content placeholder div | `<Placeholder title="..." />` |
 
 **Available components:**
-- `Grid` - Responsive grid layout
+
+**Layout:**
+- `Grid` - Responsive grid layout (cols, gap props)
+- `Stack` - Vertical stacking with consistent gaps (gap: small/medium/large)
+- `Space` - Vertical spacing between elements (size: small/medium/large)
+
+**Text:**
 - `Subtitle` - Muted text below headings
+- `Paragraph` - Body text with proper margins (center, bold props)
+- `Highlight` - Centered emphasized text for key questions (weight: light/normal/bold)
+- `Note` - Italic muted text for caveats
+
+**Cards:**
+- `FeatureCard` - Colored card with icon (color, variant: default/pillar, size: default/compact)
 - `MetricCard` - Big number with label
-- `FeatureCard` - Colored card with icon (default or pillar variant)
 - `StepItem` - Numbered step with title
-- `Tag` - Pill-shaped labels
 - `AgendaItem` - Colored agenda boxes
-- `ImpactBox` - Black box for key takeaways
+
+**Media:**
+- `Image` - Images with consistent styling (src, size: small/medium/large/full, center, rounded)
+- `PortLogo` - Port logo (type: svg/png, color: black/white, size)
+- `Placeholder` - Content placeholder (title, subtitle)
+
+**Accents:**
+- `Tag` - Pill-shaped labels
+- `ImpactBox` - Black box for key takeaways (center, spacing: default/small/none)
 - `ColorDots` - Decorative cover element
+
+**Example slide using components:**
+
+```markdown
+# Slide title
+
+<Subtitle>Supporting context for the title</Subtitle>
+
+<Space size="large" />
+
+<Grid cols="2" gap="4">
+  <Image src="/images/example.png" alt="Description" />
+  <Stack>
+    <FeatureCard icon="🎯" title="Point one" color="blue" size="compact">
+      Brief description
+    </FeatureCard>
+    <FeatureCard icon="💡" title="Point two" color="green" size="compact">
+      Another description
+    </FeatureCard>
+  </Stack>
+</Grid>
+
+<ImpactBox center>
+  Key takeaway for the audience.
+</ImpactBox>
+
+<Note>Optional caveat or footnote.</Note>
+```
 
 ### 3. Apply layouts
 
@@ -216,16 +267,23 @@ Task(subagent_type="general-purpose", prompt="Edit slide X in [file] to [specifi
 
 ## Extending the theme
 
-When you need a pattern that doesn't exist in the theme:
+**Rule: If you can't build it with existing components, create a new component.**
 
-1. **First check if an existing component can work** - Most layouts can be built with Grid + existing components
-2. **If you need custom Tailwind, keep it minimal** - Only for one-off cases, not repeated patterns
-3. **If you use a pattern 3+ times, add it to the theme:**
-   - Create a new component in `themes/port/components/`
-   - Test it in `themes/port/slides.md`
-   - Document it in `themes/port/README.md`
+When you need a pattern that doesn't exist:
 
-**Never add inline `<style>` blocks** to individual presentations. If you need new styles, extend the theme so all presentations benefit.
+1. **First check if existing components can work** - Most layouts use Grid + Stack + existing components
+2. **If not, create a new component** in `themes/port/components/`
+   - Add props for variations (size, color, spacing)
+   - Include scoped styles in the component
+   - Test it works in isolation
+3. **Document the component** in `themes/port/README.md`
+
+**Never:**
+- Add inline Tailwind classes (`class="..."`) to slides.md
+- Add inline `<style>` blocks to individual presentations
+- Use raw HTML tags (`<div>`, `<p>`, `<img>`) with custom styling
+
+**Why:** Theme components ensure consistency across all presentations, handle responsive behavior, and make maintenance easier. One style change in a component updates all slides using it.
 
 ## References
 

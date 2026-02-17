@@ -7,15 +7,20 @@ const props = defineProps({
 })
 
 const gridStyle = computed(() => ({
-  display: 'grid',
   gridTemplateColumns: `repeat(${props.cols}, minmax(0, 1fr))`,
-  gap: `${props.gap * 0.25}rem`,
-  marginTop: '1rem'
+  gap: `${props.gap * 0.25}rem`
 }))
 </script>
 
 <template>
-  <div :style="gridStyle">
+  <div class="port-grid" :style="gridStyle">
     <slot />
   </div>
 </template>
+
+<style scoped>
+.port-grid {
+  display: grid;
+  margin-top: 1.5rem;
+}
+</style>
