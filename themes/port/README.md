@@ -323,6 +323,46 @@ Content placeholder for videos, images, or other media not yet available.
 <Placeholder title="Video placeholder" subtitle="Recording of demo coming soon" />
 ```
 
+### Timeline
+
+Horizontal timeline for roadmaps with quarter markers.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `quarters` | Array | `['Q1', 'Q2', 'Q3', 'Q4']` | Labels for timeline markers |
+
+```html
+<Timeline :quarters="['Q4 25', 'Q1 26', 'Q2 26', 'Q3 26']">
+  <TimelineItem position="above" left="20%" icon="🚀">
+    Launch feature
+  </TimelineItem>
+  <TimelineItem position="below" left="50%" status="Planned">
+    Milestone B
+  </TimelineItem>
+</Timeline>
+```
+
+### TimelineItem
+
+Individual item on a Timeline. Must be used inside a Timeline component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `position` | String | "above" | "above" or "below" the timeline axis |
+| `left` | String | Required | Horizontal position (e.g., "20%", "50%") |
+| `icon` | String | - | Optional emoji icon |
+| `status` | String | - | Optional status badge (e.g., "Planned", "In progress") |
+
+```html
+<TimelineItem position="above" left="30%" icon="📦">
+  Release v2.0
+</TimelineItem>
+
+<TimelineItem position="below" left="60%" status="In progress">
+  Feature development
+</TimelineItem>
+```
+
 ## Brand colors
 
 | Element | Background | Text |

@@ -1,6 +1,6 @@
 ---
 name: slidev-presentation
-description: Create Markdown-based presentations using Slidev with live preview and export to PDF/PNG. Use when building technical presentations, internal decks, or version-controlled slides. Triggers include "create a presentation", "build slides for [topic]", "Slidev deck", or "technical presentation".
+description: Create, run, and export Markdown-based presentations using Slidev. Use when building, previewing, or running Slidev presentations. Triggers include "create a presentation", "run slidev", "preview slides", "slidev command", "export to PDF", or "Slidev deck".
 ---
 
 # Slidev presentation
