@@ -5,7 +5,7 @@
     "slidev": ">=0.48.0"
   },
   "slidev": {
-    "colorSchema": "light",
+    "colorSchema": "both",
     "defaults": {
       "fonts": {
         "sans": "DM Sans",

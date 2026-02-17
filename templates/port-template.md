@@ -162,7 +162,7 @@ Options comparison slide. Good for showing alternatives.
 
 <Space size="large" />
 
-<Image src="/images/example.png" alt="Description" size="large" center />
+<Placeholder title="Image placeholder" subtitle="Add your image to public/images/" />
 
 <!--
 Single image slide. Use Image component for consistent styling.
@@ -173,7 +173,7 @@ Single image slide. Use Image component for consistent styling.
 # Two-column with image
 
 <Grid cols="2" gap="8">
-  <Image src="/images/example.png" alt="Description" />
+  <Placeholder title="Image" subtitle="Add to public/images/" />
   <Stack>
     <FeatureCard icon="✅" title="Pros" color="green">
       Benefits listed here
