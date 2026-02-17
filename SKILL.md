@@ -3,11 +3,11 @@ name: slidev-presentation
 description: Create Markdown-based presentations using Slidev with live preview and export to PDF/PNG. Use when building technical presentations, internal decks, or version-controlled slides. Triggers include "create a presentation", "build slides for [topic]", "Slidev deck", or "technical presentation".
 ---
 
-# Slidev Presentation
+# Slidev presentation
 
 Create Markdown-based presentations using Slidev with live preview, syntax highlighting, and export capabilities.
 
-## Required Information
+## Required information
 
 Gather before starting:
 - Presentation topic/title
@@ -18,68 +18,53 @@ Gather before starting:
 
 ## Process
 
-### 1. Copy the Port template
+### 1. Set up the presentation with Port theme
 
-Start by copying the Port template to your presentation folder:
+Create the presentation folder and set up the theme:
 
 ```bash
 mkdir -p outputs/presentations/[name]
-cp .claude/skills/slidev-presentation/templates/port-template.md outputs/presentations/[name]/slides.md
 ```
 
-The template includes:
-- **4 title slide variations** (cover, section divider, numbered section, quote opener)
-- **7 content slide variations** (two-column, before/after, feature cards, stats, takeaways, comparison table, code)
-- **3 creative slides** (timeline, workflow comparison, architecture diagram)
-
-Delete unused slides and customize the remaining ones for your presentation.
-
-### 2. Customize frontmatter
-
-Update the frontmatter at the top of your slides.md:
+Create `slides.md` with this frontmatter (adjust the relative path based on location):
 
 ```yaml
 ---
-theme: default
+theme: ../../../.claude/skills/slidev-presentation/themes/port
 title: Presentation Title
-info: |
-  Port - Agentic Engineering Platform
-author: Matan Grady
-fonts:
-  sans: Inter
-  mono: Fira Code
-  weights: '400,500,600,700'
-highlighter: shiki
-transition: slide-left
-exportFilename: presentation-name
 ---
 ```
 
-Each `---` on its own line creates a new slide.
+The Port theme provides:
+- Pre-styled layouts (cover, section, default)
+- Reusable components (Grid, FeatureCard, MetricCard, Tag, StepItem, ImpactBox, etc.)
+- Consistent brand colors and typography
 
-### 2. Add Port Brand Styles
+**See:** [themes/port/README.md](themes/port/README.md) for full component documentation.
 
-Add this style block to your first slide for Port branding:
+### 2. Use template components (not custom CSS)
 
-```html
-<style>
-:root {
-  --port-bg: #f8f9fa;
-  --port-card: #ffffff;
-  --port-black: #000000;
-  --port-muted: #6b7c93;
-  --port-border: #e5e7eb;
-}
+**Always prefer theme components over inline Tailwind classes.** The theme components handle spacing, colors, and responsive behavior consistently.
 
-.slidev-layout { background: var(--port-bg); }
-h1 { font-weight: 700; color: var(--port-black); }
-h2, h3 { font-weight: 600; color: var(--port-black); }
-</style>
-```
+| Instead of... | Use... |
+|---------------|--------|
+| `<div class="grid grid-cols-3 gap-4">` | `<Grid cols="3" gap="4">` |
+| `<div class="bg-blue-100 rounded-xl p-5">` | `<FeatureCard color="blue">` |
+| `<div class="bg-black text-white p-6">` | `<ImpactBox>` |
+| `<span class="bg-blue-100 px-3 py-1 rounded-full">` | `<Tag color="blue">` |
 
-See [references/port-theme.md](references/port-theme.md) for complete brand guidelines including case study templates.
+**Available components:**
+- `Grid` - Responsive grid layout
+- `Subtitle` - Muted text below headings
+- `MetricCard` - Big number with label
+- `FeatureCard` - Colored card with icon (default or pillar variant)
+- `StepItem` - Numbered step with title
+- `Tag` - Pill-shaped labels
+- `AgendaItem` - Colored agenda boxes
+- `ImpactBox` - Black box for key takeaways
+- `ColorDots` - Decorative cover element
 
-### 3. Apply Layouts
+### 3. Apply layouts
 
 Add `layout` frontmatter per slide:
 
@@ -110,7 +95,7 @@ Content here
 More content
 ```
 
-### 4. Add Code Blocks
+### 4. Add code blocks
 
 Use line highlighting for step-by-step reveals:
 
@@ -126,7 +111,7 @@ def another():
 ```
 ```
 
-### 5. Add Speaker Notes
+### 5. Add speaker notes
 
 Include notes below each slide using HTML comment:
 
@@ -141,7 +126,7 @@ Only visible in presenter mode.
 -->
 ```
 
-### 6. Preview and Export
+### 6. Preview and export
 
 When the user asks to "run" the presentation:
 
@@ -177,43 +162,7 @@ npx @slidev/cli export slides.md --with-clicks --output detailed.pdf
 
 See [references/export-guide.md](references/export-guide.md) for complete export options.
 
-## Port Brand Quick Reference
-
-| Element | Value |
-|---------|-------|
-| Page Background | `#f8f9fa` (light gray) |
-| Cards | `#ffffff` with `border-gray-200` |
-| Impact Boxes | `#000000` bg, white text |
-| Muted Text | `#4b5563` (gray-600, readable on light bg) |
-| Card Text | `text-gray-800` or `text-gray-700` |
-| Tag Blue | `#dbeafe` |
-| Tag Pink | `#fce7f3` |
-| Tag Green | `#dcfce7` |
-| Font | Inter (sans), Fira Code (mono) |
-
-### Readability rules
-
-1. **Use explicit text colors on cards** - Don't rely on inheritance. Add `text-gray-800` for headings, `text-gray-700` for body text.
-2. **Muted text must be `#4b5563`** - The old `#6b7c93` is too light on `#f8f9fa` background.
-3. **For multi-row layouts, use compact padding** - Use `py-2` instead of `py-4` when stacking rows vertically.
-4. **Test light backgrounds** - If text looks faint, add explicit `text-gray-700` or darker.
-
-Port case study card:
-```html
-<div class="bg-white p-6 rounded-lg border border-gray-200">
-  <p class="text-[#6b7c93] font-semibold mb-2">Before</p>
-  <p>Problem with <strong>key pain bolded</strong>.</p>
-</div>
-```
-
-Port impact box:
-```html
-<div class="bg-black text-white p-6 rounded-lg">
-  Impact: Metric X → Y; outcome achieved.
-</div>
-```
-
-## Output Format
+## Output format
 
 Each presentation folder contains:
 
@@ -227,7 +176,7 @@ outputs/presentations/[name]/
 └── components/        # Custom Vue components (optional)
 ```
 
-## Multi-slide editing workflow
+## Multi-slide editing
 
 When making changes across multiple slides, use the Task tool to spawn sub-agents. This preserves your main context and allows parallel edits.
 
@@ -246,7 +195,7 @@ Task(subagent_type="general-purpose", prompt="Edit slide X in [file] to [specifi
 - Describe the exact change: what element, what property, what value
 - Reference line numbers or slide numbers for clarity
 
-## Quality standards
+## Quality checklist
 
 **Structure:**
 - [ ] One main idea per slide
@@ -265,42 +214,22 @@ Task(subagent_type="general-purpose", prompt="Edit slide X in [file] to [specifi
 - [ ] No marketing speak or inflated language
 - [ ] Follow writing guidelines for all text
 
-## Port theme
+## Extending the theme
 
-The Port theme is a reusable Slidev theme with Port branding, custom layouts, and pre-built components.
+When you need a pattern that doesn't exist in the theme:
 
-**Location:** `.claude/skills/slidev-presentation/themes/port/`
+1. **First check if an existing component can work** - Most layouts can be built with Grid + existing components
+2. **If you need custom Tailwind, keep it minimal** - Only for one-off cases, not repeated patterns
+3. **If you use a pattern 3+ times, add it to the theme:**
+   - Create a new component in `themes/port/components/`
+   - Test it in `themes/port/slides.md`
+   - Document it in `themes/port/README.md`
 
-**Usage:** In your presentation's frontmatter, reference the theme with a relative path:
-
-```yaml
----
-theme: ../../../.claude/skills/slidev-presentation/themes/port
-title: Your Presentation
----
-```
-
-Adjust the relative path based on your presentation's location.
-
-**Available layouts:**
-- `cover` - Title slides (props: `showLogo`, `showDots`)
-- `section` - Section dividers with optional big number (props: `number`)
-- `two-cols` - Two-column layout (props: `gap`)
-- `center` - Centered content
-- `statement` - Bold statement slides (props: `dark`)
-- `default` - Standard content slides
-
-**See:** [themes/port/README.md](themes/port/README.md) for full component documentation and usage examples.
+**Never add inline `<style>` blocks** to individual presentations. If you need new styles, extend the theme so all presentations benefit.
 
 ## References
 
-- [Port template](templates/port-template.md) - Complete slide template with 14 layout variations
-- [Port theme README](themes/port/README.md) - Full theme documentation with layouts and components
+- [Port theme README](themes/port/README.md) - Full component documentation with examples
 - [Layout troubleshooting](references/layout-troubleshooting.md) - Fixes for overflow, alignment, and common issues
 - [Narrative framework](references/narrative-framework.md) - Andy Raskin's five-act structure for compelling presentations
-- [Port theme guide](references/port-theme.md) - Complete brand colors, styles, and templates
 - [Export guide](references/export-guide.md) - PDF, PNG, and PowerPoint export options
-
-## Adding new slide styles
-
-When you create a new slide layout that works well, consider adding it back to the template. The template should grow over time to include more variations that match Port's brand.

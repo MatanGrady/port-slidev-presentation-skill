@@ -156,11 +156,6 @@ number: "01"
   </FeatureCard>
 </Grid>
 
-<div class="flex justify-center gap-4 mt-6">
-  <Tag color="blue">Access Controls</Tag>
-  <Tag color="green">60+ Integrations</Tag>
-</div>
-
 ---
 
 # Data

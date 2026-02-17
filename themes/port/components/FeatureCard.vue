@@ -26,13 +26,15 @@ defineProps({
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  min-height: 180px;
+  min-height: 160px;
 }
 
 .feature-card.pillar {
   background: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   text-align: center;
+  padding: 1.25rem;
+  min-height: 140px;
 }
 
 .feature-content {
@@ -67,14 +69,14 @@ defineProps({
 
 /* Pillar variant: icon with colored circle background */
 .pillar .feature-icon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
 }
 
 .pillar .icon-blue { background: #dbeafe; }
@@ -92,8 +94,8 @@ defineProps({
 }
 
 .pillar .feature-title {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  margin-bottom: 0.375rem;
 }
 
 .feature-desc {
