@@ -2,14 +2,15 @@
 defineProps({
   icon: { type: String, default: '✨' },
   title: { type: String, required: true },
-  color: { type: String, default: 'blue' }
+  color: { type: String, default: 'blue' },
+  variant: { type: String, default: 'default' } // 'default' or 'pillar'
 })
 </script>
 
 <template>
-  <div class="feature-card" :class="`feature-${color}`">
-    <div class="feature-content">
-      <div class="feature-icon">{{ icon }}</div>
+  <div class="feature-card" :class="[`feature-${color}`, variant === 'pillar' && 'pillar']">
+    <div class="feature-content" :class="variant === 'pillar' && 'pillar-content'">
+      <div class="feature-icon" :class="variant === 'pillar' && `icon-${color}`">{{ icon }}</div>
       <h3 class="feature-title">{{ title }}</h3>
       <p class="feature-desc"><slot /></p>
     </div>
@@ -28,8 +29,20 @@ defineProps({
   min-height: 180px;
 }
 
+.feature-card.pillar {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
 .feature-content {
   flex: 1;
+}
+
+.pillar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .feature-tags {
@@ -52,6 +65,25 @@ defineProps({
   margin-bottom: 0.5rem;
 }
 
+/* Pillar variant: icon with colored circle background */
+.pillar .feature-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.pillar .icon-blue { background: #dbeafe; }
+.pillar .icon-pink { background: #fce7f3; }
+.pillar .icon-green { background: #dcfce7; }
+.pillar .icon-purple { background: #f3e8ff; }
+.pillar .icon-yellow { background: #fef3c7; }
+.pillar .icon-orange { background: #ffedd5; }
+
 .feature-title {
   font-size: 1.125rem;
   font-weight: 700;
@@ -59,8 +91,17 @@ defineProps({
   margin-bottom: 0.25rem;
 }
 
+.pillar .feature-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
 .feature-desc {
   font-size: 0.875rem;
   color: #4b5563;
+}
+
+.pillar .feature-desc {
+  color: #6b7280;
 }
 </style>
