@@ -58,6 +58,7 @@ defineProps({
   font-size: 0.875rem;
   font-weight: 500;
   white-space: nowrap;
+  color: #1f2937;
 }
 
 .item-icon {
@@ -70,5 +71,17 @@ defineProps({
   padding: 0.125rem 0.5rem;
   border-radius: 9999px;
   font-size: 0.75rem;
+}
+
+/* Dark mode */
+.dark .item-pill {
+  background: #1a1a2e;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+.dark .item-status {
+  background: #374151;
+  color: #d1d5db;
 }
 </style>

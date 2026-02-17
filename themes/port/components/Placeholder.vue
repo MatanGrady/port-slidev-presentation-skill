@@ -39,4 +39,18 @@ defineProps<{
   color: #9ca3af;
   margin-top: 1rem;
 }
+
+/* Dark mode */
+.dark .placeholder-box {
+  background: #1a1a2e;
+  border-color: #374151;
+}
+
+.dark .placeholder-title {
+  color: #d1d5db;
+}
+
+.dark .placeholder-subtitle {
+  color: #9ca3af;
+}
 </style>

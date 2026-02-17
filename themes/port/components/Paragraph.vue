@@ -25,4 +25,8 @@ defineProps<{
 .paragraph.bold {
   font-weight: 600;
 }
+
+.dark .paragraph {
+  color: #e5e7eb;
+}
 </style>

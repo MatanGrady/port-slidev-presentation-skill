@@ -33,4 +33,18 @@ defineProps({
   font-size: 0.875rem;
   margin-top: 0.5rem;
 }
+
+/* Dark mode */
+.dark .metric-card {
+  background: #1a1a2e;
+  border-color: #374151;
+}
+
+.dark .metric-value {
+  color: #f9fafb;
+}
+
+.dark .metric-label {
+  color: #d1d5db;
+}
 </style>

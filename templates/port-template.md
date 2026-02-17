@@ -21,7 +21,7 @@ layout: cover
 <Subtitle>Subtitle or tagline goes here</Subtitle>
 
 <div class="absolute bottom-10 left-10">
-  <PortLogo type="svg" color="black" size="2rem" />
+  <PortLogo type="svg" size="2rem" />
 </div>
 
 <ColorDots />
@@ -430,7 +430,7 @@ layout: cover
 <Subtitle>Closing line here</Subtitle>
 
 <div class="absolute bottom-10 left-10">
-  <PortLogo type="svg" color="black" size="2rem" />
+  <PortLogo type="svg" size="2rem" />
 </div>
 
 <ColorDots />

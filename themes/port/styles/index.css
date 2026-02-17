@@ -34,6 +34,25 @@
   --accent-red: #ef4444;
 }
 
+/* Dark mode variables */
+.dark,
+html.dark {
+  --port-bg: #0f0f0f;
+  --port-card: #1a1a2e;
+  --port-black: #ffffff;
+  --port-muted: #cbd5e1;
+  --port-border: #374151;
+
+  --text-primary: #f9fafb;
+  --text-secondary: #e5e7eb;
+  --text-muted: #d1d5db;
+}
+
+html.dark body {
+  background: var(--port-bg);
+  color: var(--port-black);
+}
+
 /* ==============================================
    Base Styles
    ============================================== */
@@ -50,9 +69,34 @@ h1 {
   margin-bottom: 1rem;
 }
 
-h2, h3 {
+h2, h3, h4 {
   font-weight: 600;
   color: var(--port-black);
+}
+
+p {
+  color: var(--text-primary);
+}
+
+/* Dark mode text overrides */
+.dark h1,
+.dark h2,
+html.dark h1,
+html.dark h2 {
+  color: #f9fafb;
+}
+
+/* h3 and h4 default to light, but can be overridden by more specific selectors */
+.dark h3,
+.dark h4,
+html.dark h3,
+html.dark h4 {
+  color: #f9fafb;
+}
+
+.dark p,
+html.dark p {
+  color: #e5e7eb;
 }
 
 /* ==============================================
@@ -62,15 +106,15 @@ h2, h3 {
 /* Dark slide */
 .dark-slide {
   background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
-  color: white;
+  color: white !important;
 }
 .dark-slide h1,
 .dark-slide h2,
 .dark-slide p {
-  color: white;
+  color: white !important;
 }
 .dark-slide .text-muted {
-  color: #94a3b8;
+  color: #cbd5e1 !important;
 }
 
 /* Gradient backgrounds */
@@ -87,6 +131,10 @@ h2, h3 {
   background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 50%, #faf5ff 100%);
   border-radius: 24px;
   padding: 2rem;
+}
+
+.dark .gradient-area-light {
+  background: linear-gradient(135deg, #1e293b 0%, #1a1a2e 50%, #2d1b4e 100%);
 }
 
 /* ==============================================
@@ -130,6 +178,17 @@ h2, h3 {
   color: var(--text-secondary);
 }
 
+/* Override Tailwind color classes for dark mode */
+.dark .text-gray-700 {
+  color: #d1d5db !important;
+}
+.dark .text-gray-600 {
+  color: #e5e7eb !important;
+}
+.dark .text-gray-500 {
+  color: #f3f4f6 !important;
+}
+
 /* ==============================================
    Cards
    ============================================== */
@@ -142,12 +201,20 @@ h2, h3 {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
 }
 
+.dark .card {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+}
+
 .card-hover {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .card-hover:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.4);
 }
 
 .card-compact {
@@ -175,6 +242,14 @@ h2, h3 {
 .card-yellow { background: var(--port-yellow); border: none; }
 .card-purple { background: var(--port-purple); border: none; }
 
+.dark .card-blue,
+.dark .card-pink,
+.dark .card-green,
+.dark .card-yellow,
+.dark .card-purple {
+  opacity: 0.9;
+}
+
 /* ==============================================
    Boxes
    ============================================== */
@@ -184,6 +259,12 @@ h2, h3 {
   color: white;
   padding: 1.5rem;
   border-radius: 16px;
+}
+
+.dark .impact-box {
+  background: var(--port-card);
+  color: var(--port-black);
+  border: 1px solid var(--port-border);
 }
 
 .success-box {
@@ -210,6 +291,10 @@ h2, h3 {
   font-weight: 500;
 }
 
+.dark .statement-card {
+  background: var(--port-card);
+}
+
 /* ==============================================
    Tags
    ============================================== */
@@ -230,6 +315,17 @@ h2, h3 {
 .tag-orange { background: var(--port-orange); color: #c2410c; }
 .tag-dark { background: var(--port-black); color: white; }
 .tag-neutral { background: #f3f4f6; color: #374151; }
+
+.dark .tag-dark {
+  background: var(--port-card);
+  color: var(--port-black);
+  border: 1px solid var(--port-border);
+}
+
+.dark .tag-neutral {
+  background: var(--port-card);
+  color: var(--text-secondary);
+}
 
 /* ==============================================
    Icons & Numbers
@@ -280,6 +376,10 @@ h2, h3 {
   font-weight: 600;
 }
 
+.dark .emoji-badge {
+  background: var(--port-card);
+}
+
 .category-pill {
   display: inline-flex;
   align-items: center;
@@ -289,6 +389,10 @@ h2, h3 {
   border-radius: 9999px;
   border: 1px solid var(--port-border);
   font-weight: 600;
+}
+
+.dark .category-pill {
+  background: var(--port-card);
 }
 
 .avatar-stack {
@@ -310,6 +414,11 @@ h2, h3 {
 .avatar-stack span:first-child,
 .avatar-stack img:first-child {
   margin-left: 0;
+}
+
+.dark .avatar-stack img,
+.dark .avatar-stack span {
+  border-color: var(--port-bg);
 }
 
 /* ==============================================
@@ -441,11 +550,22 @@ th {
   background: #f3f4f6;
 }
 
+.dark th {
+  color: var(--text-primary);
+  background: var(--port-card);
+  border-bottom-color: var(--port-border);
+}
+
 td {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e5e7eb;
   color: #374151;
   vertical-align: top;
+}
+
+.dark td {
+  color: var(--text-secondary);
+  border-bottom-color: var(--port-border);
 }
 
 tr:last-child td {
@@ -454,4 +574,8 @@ tr:last-child td {
 
 tbody tr:hover {
   background: #f9fafb;
+}
+
+.dark tbody tr:hover {
+  background: var(--port-card);
 }

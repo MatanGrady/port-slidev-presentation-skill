@@ -18,6 +18,11 @@
   margin-bottom: 0.5rem;
 }
 
+.dark .slidev-layout.section h1,
+html.dark .slidev-layout.section h1 {
+  color: #f9fafb;
+}
+
 .section-number {
   font-size: 6rem;
   font-weight: 800;

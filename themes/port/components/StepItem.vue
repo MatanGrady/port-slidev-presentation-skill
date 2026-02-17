@@ -54,4 +54,13 @@ defineProps({
   margin: 0;
   align-self: start;
 }
+
+/* Dark mode */
+.dark .step-title {
+  color: #f9fafb;
+}
+
+.dark .step-desc {
+  color: #d1d5db;
+}
 </style>

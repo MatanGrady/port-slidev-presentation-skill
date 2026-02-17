@@ -129,4 +129,37 @@ defineProps({
 .pillar .feature-desc {
   color: #6b7280;
 }
+
+/* Dark mode */
+.dark .feature-title {
+  color: #f9fafb;
+}
+
+.dark .feature-desc {
+  color: #d1d5db;
+}
+
+.dark .feature-card.pillar {
+  background: #1a1a2e;
+  border: 1px solid #374151;
+}
+
+/* Keep dark text on pastel backgrounds in dark mode */
+.dark .feature-blue .feature-title,
+.dark .feature-pink .feature-title,
+.dark .feature-green .feature-title,
+.dark .feature-purple .feature-title,
+.dark .feature-yellow .feature-title,
+.dark .feature-orange .feature-title {
+  color: #1f2937;
+}
+
+.dark .feature-blue .feature-desc,
+.dark .feature-pink .feature-desc,
+.dark .feature-green .feature-desc,
+.dark .feature-purple .feature-desc,
+.dark .feature-yellow .feature-desc,
+.dark .feature-orange .feature-desc {
+  color: #4b5563;
+}
 </style>

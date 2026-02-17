@@ -9,4 +9,8 @@
   margin-top: -2rem;
   margin-bottom: 0.25rem;
 }
+
+.dark .subtitle {
+  color: #d1d5db;
+}
 </style>

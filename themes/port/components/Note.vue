@@ -12,4 +12,8 @@
   font-style: italic;
   margin-top: 1rem;
 }
+
+.dark .note {
+  color: #d1d5db;
+}
 </style>

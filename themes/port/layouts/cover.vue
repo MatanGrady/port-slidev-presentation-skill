@@ -20,6 +20,11 @@
   margin-bottom: 2.5rem;
 }
 
+.dark .slidev-layout h1,
+html.dark .slidev-layout h1 {
+  color: #f9fafb;
+}
+
 .slidev-layout.cover h1 {
   font-size: 3.5rem;
 }

@@ -31,4 +31,9 @@ defineProps<{
 .highlight.bold {
   font-weight: 600;
 }
+
+/* Dark mode */
+.dark .highlight {
+  color: #f9fafb;
+}
 </style>

@@ -30,4 +30,11 @@ defineProps({
 .impact-box.spacing-none {
   margin-top: 0;
 }
+
+/* Dark mode */
+.dark .impact-box {
+  background: #1a1a2e;
+  color: #f9fafb;
+  border: 1px solid #374151;
+}
 </style>

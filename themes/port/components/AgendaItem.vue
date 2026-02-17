@@ -36,4 +36,9 @@ defineProps({
 .agenda-purple { background: #f3e8ff; }
 .agenda-yellow { background: #fef3c7; }
 .agenda-orange { background: #ffedd5; }
+
+/* Dark mode */
+.dark .agenda-text {
+  color: #1f2937;
+}
 </style>
