@@ -1,6 +1,6 @@
 ---
 name: slidev-presentation
-description: Create, run, and export Markdown-based presentations using Slidev. Use when building, previewing, or running Slidev presentations. Triggers include "create a presentation", "run slidev", "preview slides", "slidev command", "export to PDF", or "Slidev deck".
+description: Create, run, and export Markdown-based presentations using Slidev. Use when building, previewing, or running Slidev presentations. Triggers include "create a presentation", "run slidev", "preview slides", "slidev command", "export to PDF", "Slidev deck", "turn insights into slides", "presentation from notes", "make a presentation from this", or "create slides from [content]".
 ---
 
 # Slidev presentation
@@ -285,9 +285,16 @@ When you need a pattern that doesn't exist:
 
 **Why:** Theme components ensure consistency across all presentations, handle responsive behavior, and make maintenance easier. One style change in a component updates all slides using it.
 
+## Insights-to-slides workflow
+
+When starting from raw content (meeting notes, research, call transcripts, analysis documents) rather than a predefined outline, follow the guided insights-to-slides workflow. This adds a planning phase before slide creation: analyze the source material, propose a narrative arc, gather audience/goal requirements, identify visual opportunities, and then build slides using the standard process above.
+
+**See:** [references/insights-to-slides.md](references/insights-to-slides.md) for the full workflow, plan template, and content-specific quality checklist.
+
 ## References
 
 - [Port theme README](themes/port/README.md) - Full component documentation with examples
 - [Layout troubleshooting](references/layout-troubleshooting.md) - Fixes for overflow, alignment, and common issues
 - [Narrative framework](references/narrative-framework.md) - Andy Raskin's five-act structure for compelling presentations
 - [Export guide](references/export-guide.md) - PDF, PNG, and PowerPoint export options
+- [Insights-to-slides workflow](references/insights-to-slides.md) - Guided workflow for transforming raw content into presentations
