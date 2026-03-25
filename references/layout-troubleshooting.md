@@ -164,4 +164,4 @@ Before finalizing slide text, check:
 - [ ] Is it down-to-earth? ("We're not afraid to ditch things we thought were right")
 - [ ] Does it avoid marketing speak? (No inflated or promotional language)
 
-See the writing guidelines in `reference/` for full standards.
+See the writing guidelines in `context/` for full standards.
